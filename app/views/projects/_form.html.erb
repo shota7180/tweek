@@ -1,47 +1,27 @@
 <%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
+    習慣名<br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    メールアドレス<br />
+    <%= f.text_field :email, :value=>@project.email %>
   </div>
   <div class="field">
-    <%= f.label :report_frequency %><br />
-    <%= f.number_field :report_frequency %>
+    レポートの頻度<br />
+	<%= f.select :report_frequency, {'毎日' => 1, '1週間' => 7, '2週間' => 14, '4週間' => 28}, {:selected => 1} %>
   </div>
   <div class="field">
-    <%= f.label :continuous_days %><br />
-    <%= f.number_field :continuous_days %>
+    継続日数 <br />
+	<%= f.number_field :continuous_days, :value => @project.continuous_days %>週間
   </div>
   <div class="field">
-    <%= f.label :percent %><br />
-    <%= f.number_field :percent %>
+    達成基準 <br />
+	<%= f.select :percent, {'100%' => 1.0, '90%' => 0.9, '80%' => 0.8 }, {:selected => 1} %>
   </div>
   <div class="field">
-    <%= f.label :isbonus %><br />
-    <%= f.check_box :isbonus %>
-  </div>
-  <div class="field">
-    <%= f.label :create_at %><br />
-    <%= f.datetime_select :create_at %>
+    ご褒美機能 <br />
+	<%= f.select :isbonus, {'on' => 1, 'off' => 0}, {:selected => 1} %>
   </div>
   <div class="actions">
     <%= f.submit %>

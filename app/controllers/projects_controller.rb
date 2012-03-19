@@ -25,6 +25,10 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
+	@project.user_id = current_user.id
+	@project.email = current_user.provider_email
+	@project.continuous_days = 3
+	@project.create_at = Time.now
 
     respond_to do |format|
       format.html # new.html.erb
