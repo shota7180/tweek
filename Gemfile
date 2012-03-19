@@ -6,6 +6,7 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'settingslogic'
 
 
 # Gems used only for assets and not required
@@ -36,3 +37,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'execjs' 
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "mongoid"
+gem "bson_ext"
