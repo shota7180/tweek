@@ -4,15 +4,15 @@ CREATE TABLE users (
 	id                     int(10) unsigned not null AUTO_INCREMENT,
 	provider               varchar(128) not null,
 	uid                    varchar(128) not null,
-	gender                 varchar(8)   not null, #male ,#female
+	gender                 varchar(8),
 	birth_day              date,
 
 	provider_name          varchar(512) not null,
 	provider_screen_name   varchar(512) not null,
-	provider_email         varchar(512) not null,
-	provider_location      varchar(512) not null,
-	provider_image_url     varchar(512) not null,
-	provider_user_url      varchar(512) not null,
+	provider_email         varchar(512), 
+	provider_location      varchar(512),
+	provider_image_url     varchar(512),
+	provider_user_url      varchar(512),
 
 	plife_name             varchar(512),
 	plife_email            varchar(512),

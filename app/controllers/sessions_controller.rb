@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
 			user.login(auth)
 		end
 		session[:user_id] = user.id
-		session[:fb_access_token] = auth['credentials']['token']
+		if auth["provider"] == "facebook"
+			session[:fb_access_token] = auth['credentials']['token']
+		end
 		logger.debug(auth);
 		redirect_to root_url, :notice => "login&quot"
 	end

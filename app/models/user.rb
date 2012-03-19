@@ -4,20 +4,21 @@ class User < ActiveRecord::Base
         #logger.debug("debug------------------- user model");
         #logger.debug(auth["extra"]["raw_info"]["location"])
         create!do |user|
+			logger.debug(auth)
             user.provider              = auth["provider"]
             user.uid                   = auth["uid"]
-            user.gender                = auth["extra"]["raw_info"]["gender"]
-            user.birth_day              = Date.strptime(auth[:extra][:raw_info][:birthday],'%m/%d/%Y') if auth[:extra][:raw_info][:birthday]
-            user.provider_name         = auth["info"]["name"]
-            user.provider_screen_name  = auth["info"]["nickname"] || ''
-            user.provider_email        = auth["info"]["email"]
-            if (auth["extra"]["raw_info"] && auth["extra"]["raw_info"]["location"])
-            user.provider_location     = auth["extra"]["raw_info"]["location"]["name"]
-            else
-                user.provider_location =''
-            end
-            user.provider_image_url    = auth["info"]["image"]
-            user.provider_user_url     = auth["extra"]["raw_info"]["link"]
+			user.gender                = auth["extra"]["raw_info"]["gender"]
+			user.birth_day              = Date.strptime(auth[:extra][:raw_info][:birthday],'%m/%d/%Y') if auth[:extra][:raw_info][:birthday]
+			user.provider_name         = auth["info"]["name"]
+			user.provider_screen_name  = auth["info"]["nickname"] || ''
+			user.provider_email        = auth["info"]["email"]
+			if (auth["extra"]["raw_info"] && auth["extra"]["raw_info"]["location"])
+			user.provider_location     = auth["extra"]["raw_info"]["location"]["name"]
+			else
+				user.provider_location =''
+			end
+			user.provider_image_url    = auth["info"]["image"]
+			user.provider_user_url     = auth["extra"]["raw_info"]["link"]
             user.reg_date =Time.now.to_i
             user.last_login =Time.now.to_i
         end

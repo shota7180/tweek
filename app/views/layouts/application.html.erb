@@ -9,17 +9,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		    if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=<%= settings.facebook_app_id %>";
-				  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-
 	<div id="contents">
 		<div id="main-content">
 			<% if current_user %>
@@ -34,6 +23,7 @@
 				 <script src="http://connect.facebook.net/en_US/all.js"></script>
 				 <script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
 				  <a href="/auth/facebook"> <fb:login-button>Login with Facebook</fb:login-button> </a>
+				  <%= link_to "Twitterでlogin","/auth/twitter" %>
 			<% end %>
 			<%= yield %>
 		</div>

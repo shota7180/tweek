@@ -2,20 +2,20 @@ development:
   google_api_key: "APIKEY_DEVELOPMENT"
   facebook_access_token: "214649535286130|bDY-KEjO6CYHfDVYUFcu_dPE_14"
   facebook_admins: "1275469300"
-  facebook_app_id: 214649535286130
+  facebook_app_id: 384628221555228 
   per_page: 20
 
 test:
   google_api_key: "APIKEY_DEVELOPMENT"
   facebook_access_token: "214649535286130|bDY-KEjO6CYHfDVYUFcu_dPE_14"
   facebook_admins: "1275469300"
-  facebook_app_id: 214649535286130
+  facebook_app_id: 384628221555228 
   per_page: 20
 
 production:
   google_api_key: "APIKEY_PRODUCTION"
   facebook_access_token: "214649535286130|bDY-KEjO6CYHfDVYUFcu_dPE_14"
   facebook_admins: "1275469300"
-  facebook_app_id: 214649535286130
+  facebook_app_id: 384628221555228 
   per_page: 20
 
