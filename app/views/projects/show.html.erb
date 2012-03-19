@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @project.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @project.email %>
+</p>
+
+<p>
+  <b>Report frequency:</b>
+  <%= @project.report_frequency %>
+</p>
+
+<p>
+  <b>Continuous days:</b>
+  <%= @project.continuous_days %>
+</p>
+
+<p>
+  <b>Percent:</b>
+  <%= @project.percent %>
+</p>
+
+<p>
+  <b>Isbonus:</b>
+  <%= @project.isbonus %>
+</p>
+
+<p>
+  <b>Create at:</b>
+  <%= @project.create_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

@@ -1,13 +1,169 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree .
 */
+
+/*-----------------------------------------------
+ *  __default style clear
+ *-----------------------------------------------*/
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:white;
+	font-size:74.5%;
+	font-family:verdana,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,Meiryo,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+	color:white;
+	line-height:1.5;
+}
+
+html {
+	overflow-y:scroll;
+}
+
+p {
+	margin:0 0 1em;
+}
+
+li {
+	list-style:none;
+	line-height:1.3;
+}
+
+img, fieldset {
+	border:0;
+}
+
+#common-header .fb_iframe_widget iframe {
+	display:none;
+}
+
+/*-----------------------------------------------
+ *  __Base Link Color Setting
+ *  -----------------------------------------------*/
+a {
+	color:#8986FF;
+}
+
+a:link {
+}
+
+a:visited {
+}
+
+a:hover {
+}
+
+a:active {
+}
+
+/*-----------------------------------------------
+ *  __header
+ *  -----------------------------------------------*/
+
+#common-header {
+	margin-bottom:10px;
+	background:#333;
+	width:100%;
+}
+
+#common-header h1 {
+	color:#FFFFFF;
+	padding:10px 15px 0;
+}
+
+#common-header p#siteDescription {
+	color:#FFFFFF;
+	padding:10px 15px 10px 30px;
+}
+
+/*-----------------------------------------------
+ *  __common-footer
+ *  -----------------------------------------------*/
+
+#common-footer {
+	clear:both;
+	margin-bottom:15px;
+	padding:10px;
+	background:#333;
+}
+
+#common-footer ul {
+	margin:0 auto 5px;
+	text-align:center;
+}
+
+#common-footer ul li {
+	display:inline;
+	margin-right:5px;
+	padding-left:10px;
+	line-height:1.1;
+	border-left:1px solid white;
+}
+
+#common-footer ul li.utilityHome {
+			border-left:0;
+}
+
+#common-footer p#copyright {
+	text-align:center;
+	margin-bottom:0;
+}
+
+/*-----------------------------------------------
+ *  __contents
+ *  -----------------------------------------------*/
+
+#contents {
+	margin:0 10px 10px;
+	overflow:hidden;
+}
+
+/* __main
+ * ------------------------------------------*/
+
+#main-content {
+	float:left;
+	width:65%;
+	padding:10px;
+	background:#F4F4F4;
+	color:black;
+}
+
+#main-content a {
+	color:blue;
+}
+
+/* __sub
+ * ------------------------------------------*/
+
+#side-content {
+	float:right;
+	width:29%;
+	padding:10px;
+	background:#ECF1EF;
+}
+
+#side-content h3 {
+	margin-bottom:5px;
+	font-size:100%;
+	letter-spacing:1px;
+}
+
+#side-content ul {
+	margin:0 0 20px;
+	padding:5px;
+	background:#FFFFFE;
+	border:1px solid #EFEFEF;
+}
+
+#side-content ul li {
+	padding:5px 10px;
+}
+
+
+

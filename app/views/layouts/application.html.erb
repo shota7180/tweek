@@ -9,8 +9,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<!-- common header-->
+	<div id="common-header" class="common-header">
+		<h1>3week</h1>
+		<p id="siteDescription">変わるを応援する</p>
+		<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+	</div>
+
+	<!-- main -->
 	<div id="contents">
 		<div id="main-content">
+			<%= content_for?(:content) ? yield(:content) : yield %>
+		</div>
+		<!-- side bar-->
+		<div id="side-content">
 			<% if current_user %>
 				<h3><%= current_user.display_name %></h3>
 				<ul>
@@ -22,11 +34,23 @@
 				<div id="fb-root"></div> 
 				 <script src="http://connect.facebook.net/en_US/all.js"></script>
 				 <script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
-				  <a href="/auth/facebook"> <fb:login-button>Login with Facebook</fb:login-button> </a>
-				  <%= link_to "Twitterでlogin","/auth/twitter" %>
+				 <a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
+				 <br />
+				 <a href="/auth/twitter"><img src="https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
 			<% end %>
-			<%= yield %>
 		</div>
+	</div>
+
+	<!-- common footer-->
+	<div id="common-footer" class="common-footer">
+		<ul>
+			<li class="utilityHome"><a href="./">HOME</a></li>
+			<li><a href="./">メッセージ</a></li>
+			<li><a href="./">会社紹介</a></li>
+			<li><a href="./">お問い合わせ</a></li>
+			<li><a href="./">関連サイト</a></li>
+		</ul>
+		<p id="copyright">Copyright &copy; 2012 <a href="/">3week</a>. All rights reserved.</p>
 	</div>
 </body>
 </html>

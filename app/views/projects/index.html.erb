@@ -1,0 +1,37 @@
+<h1>Listing projects</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Report frequency</th>
+    <th>Continuous days</th>
+    <th>Percent</th>
+    <th>Isbonus</th>
+    <th>Create at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.user_id %></td>
+    <td><%= project.name %></td>
+    <td><%= project.email %></td>
+    <td><%= project.report_frequency %></td>
+    <td><%= project.continuous_days %></td>
+    <td><%= project.percent %></td>
+    <td><%= project.isbonus %></td>
+    <td><%= project.create_at %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>

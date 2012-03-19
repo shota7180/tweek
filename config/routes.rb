@@ -1,4 +1,6 @@
 Tweek::Application.routes.draw do
+  resources :projects
+
   get "top/recent"  
 
   match "/auth/:provider/callback" => "sessions#callback"
