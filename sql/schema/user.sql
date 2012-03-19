@@ -1,6 +1,6 @@
 use tweek 
-Drop table if exists user;
-CREATE TABLE user (
+Drop table if exists users;
+CREATE TABLE users (
 	id                     int(10) unsigned not null AUTO_INCREMENT,
 	provider               varchar(128) not null,
 	uid                    varchar(128) not null,

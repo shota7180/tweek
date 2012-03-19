@@ -6,7 +6,6 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'settingslogic'
 
 
 # Gems used only for assets and not required
@@ -40,7 +39,17 @@ gem 'jquery-rails'
 
 gem 'execjs' 
 gem 'therubyracer'
-gem 'omniauth'
+
+gem 'settingslogic'
+
+gem 'rest-graph'
+gem 'rest-client' # used rest-graph
+gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281c0d083fe5a4e01aa034" 
+gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-facebook'
+
+gem 'rspec-rails', '>= 2.0.0'
+gem 'factory_girl'
+
 gem "mongoid"
 gem "bson_ext"
