@@ -1,5 +1,6 @@
 Tweek::Application.routes.draw do
   resources :projects
+  post "projects/confirm"
 
   get "top/recent"  
 

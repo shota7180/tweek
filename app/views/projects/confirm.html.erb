@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>User:</b>
   <img src="<%= @user.provider_image_url %>" alt="" width="" height="" border="" align="" />
@@ -35,11 +33,9 @@
   <%= @project.isbonus %>
 </p>
 
-<p>
-  <b>Create at:</b>
-  <%= @project.create_at %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+この情報で間違いないでしょうか？
+<%= form_tag({:controller=>"projects",:action=>"create"}, :onsubmit=>"return Validator.submit(this)") do %>
+  <div class="actions">
+    <%= button_to('登録', 'entry' ) %>
+  </div>
+<% end %>

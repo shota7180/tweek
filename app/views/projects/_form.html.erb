@@ -1,4 +1,4 @@
-<%= form_tag({:controller=>"projects",:action=>"create"}, :onsubmit=>"return Validator.submit(this)") do %>
+<%= form_tag({:controller=>"projects",:action=>"confirm"}, :onsubmit=>"return Validator.submit(this)") do %>
   <div class="field">
 	習慣名<br />
 	<%= text_field :project, :name, :onblur=>"Validator.check(this)" %>
@@ -13,7 +13,7 @@
   </div>
   <div class="field">
 	継続日数 <br />
-	<%= number_field :project, :continuous_days, :value => @project.continuous_days %>週間
+	<%= number_field :project, :continuous_days, :onblur=>"Validator.check(this, 'num1-12')", :value => 3 %>週間
   </div>
   <div class="field">
 	達成基準 <br />

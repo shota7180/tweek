@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+	@user = User.find(@project.user_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,10 +26,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-	@project.user_id = current_user.id
 	@project.email = current_user.provider_email
-	@project.continuous_days = 3
-	@project.create_at = Time.now
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +43,14 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+	@project.user_id = session[:project_user_id]
+	@project.name = session[:project_name]
+	@project.email = session[:project_email]
+	@project.report_frequency = session[:project_report_frequency]
+	@project.continuous_days = session[:project_continuous_days]
+	@project.percent = session[:project_percent]
+	@project.isbonus = session[:project_isbonus]
+	@project.create_at = session[:project_create_at]
 
     respond_to do |format|
       if @project.save
@@ -56,6 +62,22 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+  def confirm
+    @project = Project.new(params[:project])
+	@project.user_id = current_user.id
+	@project.create_at = Time.now
+	@user = User.find(@project.user_id)
+	session[:project_user_id] = @project.user_id
+	session[:project_name] = @project.name
+	session[:project_email] = @project.email
+	session[:project_report_frequency] = @project.report_frequency
+	session[:project_continuous_days] = @project.continuous_days
+	session[:project_percent] = @project.percent
+	session[:project_isbonus] = @project.isbonus
+	session[:project_create_at] = @project.create_at
+  end
+
 
   # PUT /projects/1
   # PUT /projects/1.json
