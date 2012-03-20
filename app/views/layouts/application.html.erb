@@ -5,7 +5,10 @@
   <meta property="fb:admins" content="<%=settings.facebook_admins %>" />
   <title>3week</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "validator" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "util" %>
+  <%= javascript_include_tag "validator" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

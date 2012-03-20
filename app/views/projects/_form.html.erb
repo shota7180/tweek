@@ -1,29 +1,29 @@
-<%= form_for(@project) do |f| %>
+<%= form_tag({:controller=>"projects",:action=>"create"}, :onsubmit=>"return Validator.submit(this)") do %>
   <div class="field">
-    習慣名<br />
-    <%= f.text_field :name %>
+	習慣名<br />
+	<%= text_field :project, :name, :onblur=>"Validator.check(this)" %>
   </div>
   <div class="field">
-    メールアドレス<br />
-    <%= f.text_field :email, :value=>@project.email %>
+	メールアドレス<br />
+	<%= text_field :project, :email, :onblur=>"Validator.check(this, 'mail')" %>
   </div>
   <div class="field">
-    レポートの頻度<br />
-	<%= f.select :report_frequency, {'毎日' => 1, '1週間' => 7, '2週間' => 14, '4週間' => 28}, {:selected => 1} %>
+	レポートの頻度<br />
+	<%= select :project, :report_frequency, {'毎日' => 1, '1週間' => 7, '2週間' => 14, '4週間' => 28}, {:selected => 1} %>
   </div>
   <div class="field">
-    継続日数 <br />
-	<%= f.number_field :continuous_days, :value => @project.continuous_days %>週間
+	継続日数 <br />
+	<%= number_field :project, :continuous_days, :value => @project.continuous_days %>週間
   </div>
   <div class="field">
-    達成基準 <br />
-	<%= f.select :percent, {'100%' => 1.0, '90%' => 0.9, '80%' => 0.8 }, {:selected => 1} %>
+	達成基準 <br />
+	<%= select :project, :percent, {'100%' => 1.0, '90%' => 0.9, '80%' => 0.8 }, {:selected => 1} %>
   </div>
   <div class="field">
-    ご褒美機能 <br />
-	<%= f.select :isbonus, {'on' => 1, 'off' => 0}, {:selected => 1} %>
+	ご褒美機能 <br />
+	<%= select :project, :isbonus, {'on' => 1, 'off' => 0}, {:selected => 1} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= button_to('登録', 'entry' ) %>
   </div>
 <% end %>
