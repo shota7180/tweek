@@ -6,6 +6,8 @@ CREATE TABLE users (
 	uid                    varchar(128) not null,
 	gender                 varchar(8),
 	birth_day              date,
+	token                  varchar(128),
+	secret                 varchar(128),
 
 	provider_name          varchar(512) not null,
 	provider_screen_name   varchar(512) not null,

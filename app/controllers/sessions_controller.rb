@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
 		if auth["provider"] == "facebook"
 			session[:fb_access_token] = auth['credentials']['token']
 		end
+		if auth["provider"] == "twitter"
+			session[:tw_access_token] = auth['credentials']['token']
+			session[:tw_access_secret] = auth['credentials']['secret']
+		end
 		logger.debug(auth);
 		redirect_to root_url, :notice => "login&quot"
 	end

@@ -48,6 +48,7 @@ gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'twitter'
 gem 'nokogiri'
 
 gem 'rspec-rails', '>= 2.0.0'
@@ -60,4 +61,5 @@ group :development do
 	gem 'pry'
 	gem 'pry-remote'
 	gem 'pry-nav'
+	gem "hirb"
 end

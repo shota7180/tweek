@@ -3,6 +3,8 @@ development:
   facebook_access_token: "214649535286130|bDY-KEjO6CYHfDVYUFcu_dPE_14"
   facebook_admins: "1275469300"
   facebook_app_id: 384628221555228 
+  twitter_consumer_key: "oco5avxAQMKBN90xAphJdA" 
+  twitter_consumer_secret: "TbrabbyMDE0NAHckO1IjOWRMYDTkb9hoJrxAMYqlfw" 
   per_page: 20
 
 test:

@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 			end
 			user.provider_image_url    = auth["info"]["image"]
 			user.provider_user_url     = auth["extra"]["raw_info"]["link"]
+			user.token					= auth['credentials']['token']
+			user.secret					= auth['credentials']['secret']
             user.reg_date =Time.now.to_i
             user.last_login =Time.now.to_i
         end

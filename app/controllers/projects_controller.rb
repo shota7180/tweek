@@ -1,3 +1,4 @@
+include SnsHelper
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
@@ -15,7 +16,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 	@user = User.find(@project.user_id)
-	binding.pry
 
     respond_to do |format|
       format.html # show.html.erb
