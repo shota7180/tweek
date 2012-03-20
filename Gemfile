@@ -55,3 +55,9 @@ gem 'factory_girl'
 
 gem "mongoid"
 gem "bson_ext"
+
+group :development do 
+	gem 'pry'
+	gem 'pry-remote'
+	gem 'pry-nav'
+end
