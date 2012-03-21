@@ -166,4 +166,12 @@ a:active {
 }
 
 
+/* __other
+ * ------------------------------------------*/
+table.table_pj{
+	width: 640px;
+}
+.table_pj td{
+	padding: 10px 4px;
+}
 

@@ -8,10 +8,6 @@
 	<%= text_field :project, :email, :onblur=>"Validator.check(this, 'mail')" %>
   </div>
   <div class="field">
-	レポートの頻度<br />
-	<%= select :project, :report_frequency, {'毎日' => 1, '1週間' => 7, '2週間' => 14, '4週間' => 28}, {:selected => 1} %>
-  </div>
-  <div class="field">
 	継続日数 <br />
 	<%= number_field :project, :continuous_days, :onblur=>"Validator.check(this, 'num1-12')", :value => 3 %>週間
   </div>

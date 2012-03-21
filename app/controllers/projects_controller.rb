@@ -47,11 +47,12 @@ class ProjectsController < ApplicationController
 	@project.user_id = session[:project_user_id]
 	@project.name = session[:project_name]
 	@project.email = session[:project_email]
-	@project.report_frequency = session[:project_report_frequency]
-	@project.continuous_days = session[:project_continuous_days]
+	@project.continuous_days = session[:project_continuous_days]*7
 	@project.percent = session[:project_percent]
 	@project.isbonus = session[:project_isbonus]
 	@project.create_at = session[:project_create_at]
+	current_user.provider_email = @project.email
+	current_user.save
 
     respond_to do |format|
       if @project.save
@@ -72,7 +73,6 @@ class ProjectsController < ApplicationController
 	session[:project_user_id] = @project.user_id
 	session[:project_name] = @project.name
 	session[:project_email] = @project.email
-	session[:project_report_frequency] = @project.report_frequency
 	session[:project_continuous_days] = @project.continuous_days
 	session[:project_percent] = @project.percent
 	session[:project_isbonus] = @project.isbonus
@@ -100,6 +100,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project = Project.find(params[:id])
+	@checks = Check.find(:all).where(:project_id => @project.id)
+	@checks.each do |check|
+		check.destroy
+	end
     @project.destroy
 
     respond_to do |format|

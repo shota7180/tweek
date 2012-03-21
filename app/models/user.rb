@@ -44,9 +44,6 @@ class User < ActiveRecord::Base
         if self.provider_email != auth["info"]["email"]
             self.provider_email = auth["info"]["email"]
         end
-        if self.provider_location != auth["extra"]["raw_info"]["location"]["name"]
-            self.provider_location = auth["extra"]["raw_info"]["location"]["name"]
-        end
         if self.provider_image_url != auth["info"]["image"]
             self.provider_image_url = auth["info"]["image"]
         end
