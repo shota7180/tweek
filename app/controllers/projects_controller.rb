@@ -79,7 +79,6 @@ class ProjectsController < ApplicationController
 	session[:project_create_at] = @project.create_at
   end
 
-
   # PUT /projects/1
   # PUT /projects/1.json
   def update

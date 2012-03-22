@@ -4,6 +4,7 @@
 </p>
 <br/>
 <p>
+
 <%= @user.provider_name %>さんのプロジェクト一覧
 <% i=0 %>
 <table class="table_pj">
@@ -15,7 +16,7 @@
 			</td>		
 			<td>
 			  <b>開始日:</b>
-			  <%= project.create_at %>
+			  <%= project.create_at.strftime("%m/%d") %>
 			</td>		
 		</tr>
 		<tr col=1>
@@ -24,9 +25,9 @@
 				<% @ischecks[i].each do |ischeck| %>
 					<% day = project.create_at+n*24*60*60 %>
 					<% if ischeck %>
-						<%= day.day %>○
+						<a href="<%= getCheckOutUrl(n+1,project.id) %>"><%= day.day %>○</a>
 					<% else %>
-						<%= day.day %>&emsp;
+						<a href="<%= getCheckUrl(n+1,project.id) %>"><%= day.day %>&emsp;</a>
 					<% end %>
 					<% n+=1 %>
 				<% end %>

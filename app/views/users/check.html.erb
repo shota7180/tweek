@@ -1,0 +1,38 @@
+<p>
+  <img src="<%= @user.provider_image_url %>" alt="" width="" height="" border="" align="" />
+  <%= @user.provider_name %>さん
+  <%= link_to "マイページへ", {:controller=>"users",:action=>"mypage"} %> 
+</p>
+<br/>
+<p>
+<%= @day.month %>/<%= @day.day %>
+<% if params[:checkout] %>のチェックを外しました！<% else %>にチェックしました！おめでとうございます！<% end %>
+</p>
+<% i=0 %>
+<table class="table_pj">
+	<tr>
+		<td>
+		  <b>プロジェクト名:</b>
+		  <%= @project.name %>
+		</td>		
+		<td>
+		  <b>開始日:</b>
+		  <%= @project.create_at.strftime("%m/%d") %>
+		</td>		
+	</tr>
+	<tr col=1>
+		<td colspan=2>		
+			<% n=0 %>
+			<% @ischecks.each do |ischeck| %>
+				<% day = @project.create_at+n*24*60*60 %>
+					<% if ischeck %>
+						<a href="<%= getCheckOutUrl(n+1,@project.id) %>"><%= day.day %>○</a>
+					<% else %>
+						<a href="<%= getCheckUrl(n+1,@project.id) %>"><%= day.day %>&emsp;</a>
+					<% end %>
+				<% n+=1 %>
+			<% end %>
+			<% i+=1 %>
+		</td>		
+	</tr>
+</table>
