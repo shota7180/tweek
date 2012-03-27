@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def mypage 
 	@user = current_user
 	@projects = Project.find(:all).where(:user_id => @user.id).desc(:created_at)
-	UserMailer.welcome_email(@user).deliver
 
 	i = 0
 	#チェック配列[[true|false]]

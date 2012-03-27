@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: tweek 
   pool: 5
-  username: play 
-  password: play
+  username: root
+  password: akibakimoi
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

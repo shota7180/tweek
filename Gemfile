@@ -44,12 +44,11 @@ gem 'settingslogic'
 
 gem 'rest-graph'
 gem 'rest-client' # used rest-graph
-gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281c0d083fe5a4e01aa034" 
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'twitter'
-gem 'nokogiri'
+#gem 'nokogiri'
 
 gem 'rspec-rails', '>= 2.0.0'
 gem 'factory_girl'
@@ -63,3 +62,5 @@ group :development do
 	gem 'pry-nav'
 	gem "hirb"
 end
+
+gem 'whenever'
