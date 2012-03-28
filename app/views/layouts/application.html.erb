@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-  <meta property="og:site_name" content="3week" />
+  <meta property="og:site_name" content="3weeks" />
   <meta property="fb:admins" content="<%=settings.facebook_admins %>" />
   <title>3week</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "validator" %>
   <!-- liteAccordion -->
   <%= stylesheet_link_tag    "liteaccordion" %>
   <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shCore.css" rel="stylesheet" />
   <link href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/3.0.83/styles/shThemeDefault.css" rel="stylesheet" />         
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "util" %>
   <%= javascript_include_tag "validator" %>
@@ -22,31 +22,34 @@
 <body>
 	<!-- common header-->
 	<div id="common-header" class="common-header">
-		<h1>3week</h1>
-		<p id="siteDescription">変わるを応援する</p>
-		<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+		<!-- logo -->
+		<div id="logo" class="logo">
+			<h1></h1>
+			<span>3weeks</span>
+			<span>変わるを応援する</span>
+			<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+		</div>
+		<!-- side header-->
+		<div id="side-header" class="side-header">
+			<% if current_user %>
+				<h3><%= current_user.display_name %>さん</h3>
+				<ul>
+					<li><img src="<%= current_user.image_url %>"/></li>
+					<li><%= link_to "ログアウト" ,logout_path %></li>
+				</ul>
+				</script>
+			<% else %>
+				<div id="fb-root"></div> 
+				 <script src="http://connect.facebook.net/en_US/all.js"></script>
+				 <script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
+				 <a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
+				 <a href="/auth/twitter"><img src="assets/signin_tw.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
+			
+			<% end %>
+		</div>
+		<div class="clear"></div>
 	</div>
 
-	<!-- side header-->
-	<div id="side-header" class="side-header">
-		<% if current_user %>
-			<h3><%= current_user.display_name %></h3>
-			<ul>
-				<li><img src="<%= current_user.image_url %>"/></li>
-				<li><%= link_to "ログアウト" ,logout_path %></li>
-			</ul>
-			</script>
-		<% else %>
-			<div id="fb-root"></div> 
-			 <script src="http://connect.facebook.net/en_US/all.js"></script>
-			 <script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
-			 <a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
-			 <br />
-			 <a href="/auth/twitter"><img src="assets/signin_tw.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
-		
-		<% end %>
-	</div>
-	<div class="clear"></div>
 
 	<!-- liteAccordion-->
 	<div id="main-content" class="main-content">
@@ -69,7 +72,6 @@
 							<script src="http://connect.facebook.net/en_US/all.js"></script>
 							<script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
 							<a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
-							<br />
 							<a href="/auth/twitter"><img src="assets/signin_tw.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
 						<% end  %>
 					</figure>
@@ -95,7 +97,7 @@
 
 	<!-- common footer-->
 	<div id="common-footer" class="common-footer">
-		<p id="copyright">Copyright &copy; 2012 <a href="/">3week</a>. All rights reserved.</p>
+		<p id="copyright">Copyright &copy; 2012 <a href="/">3weeks</a>. All rights reserved.</p>
 	</div>
 </body>
 </html>
