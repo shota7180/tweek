@@ -44,7 +44,7 @@ gem 'settingslogic'
 
 gem 'rest-graph'
 gem 'rest-client' # used rest-graph
-gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'twitter'

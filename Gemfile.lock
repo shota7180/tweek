@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/intridea/omniauth.git
-  revision: bcd891aec40ca66016600d418371d6df0885cce4
-  specs:
-    omniauth (1.0.3)
-      hashie (~> 1.2)
-      rack
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,6 +82,9 @@ GEM
     oauth2 (0.5.2)
       faraday (~> 0.7)
       multi_json (~> 1.0)
+    omniauth (1.0.3)
+      hashie (~> 1.2)
+      rack
     omniauth-facebook (1.2.0)
       omniauth-oauth2 (~> 1.0.0)
     omniauth-oauth (1.0.1)
@@ -195,7 +190,7 @@ DEPENDENCIES
   jquery-rails
   mongoid
   mysql2
-  omniauth!
+  omniauth
   omniauth-facebook
   omniauth-twitter
   pry

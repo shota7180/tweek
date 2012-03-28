@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 			session[:tw_access_secret] = auth['credentials']['secret']
 		end
 		logger.debug(auth);
-		redirect_to root_url, :notice => "login&quot"
+		redirect_to :controller=>"users", :action=>"mypage", :notice => "login&quot"
 	end
 
 	def destroy
