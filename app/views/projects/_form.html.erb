@@ -13,11 +13,7 @@
   </div>
   <div class="field">
 	達成基準 <br />
-	<%= select :project, :percent, {'100%' => 1.0, '90%' => 0.9, '80%' => 0.8 }, {:selected => 1} %>
-  </div>
-  <div class="field">
-	ご褒美機能 <br />
-	<%= select :project, :isbonus, {'on' => 1, 'off' => 0}, {:selected => 1} %>
+	<%= select :project, :percent, {'100%' => 1.0, '90%' => 0.9, '80%' => 0.8, '70%' => 0.7 }, {:selected => 1} %>
   </div>
   <div class="actions">
     <%= button_to('登録', 'entry' ) %>

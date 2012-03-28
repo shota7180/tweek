@@ -23,11 +23,6 @@
   <%= @project.percent %>
 </p>
 
-<p>
-  <b>Isbonus:</b>
-  <%= @project.isbonus %>
-</p>
-
 この情報で間違いないでしょうか？
 <%= form_tag({:controller=>"projects",:action=>"create"}, :onsubmit=>"return Validator.submit(this)") do %>
   <div class="actions">

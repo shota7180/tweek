@@ -5,6 +5,5 @@ class Project
   field :email, :type => String
   field :continuous_days, :type => Integer
   field :percent, :type => Integer
-  field :isbonus, :type => Boolean
   field :create_at, :type => Time
 end

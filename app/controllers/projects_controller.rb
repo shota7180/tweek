@@ -49,7 +49,6 @@ class ProjectsController < ApplicationController
 	@project.email = session[:project_email]
 	@project.continuous_days = session[:project_continuous_days]*7
 	@project.percent = session[:project_percent]
-	@project.isbonus = session[:project_isbonus]
 	@project.create_at = session[:project_create_at]
 	current_user.provider_email = @project.email
 	current_user.save
@@ -75,7 +74,6 @@ class ProjectsController < ApplicationController
 	session[:project_email] = @project.email
 	session[:project_continuous_days] = @project.continuous_days
 	session[:project_percent] = @project.percent
-	session[:project_isbonus] = @project.isbonus
 	session[:project_create_at] = @project.create_at
   end
 
