@@ -5,7 +5,7 @@
 </p>
 <br/>
 <p>
-<%= @day.month %>/<%= @day.day %>
+<%= @date.month %>/<%= @date.day %>
 <% if params[:checkout] %>のチェックを外しました！<% else %>にチェックしました！おめでとうございます！<% end %>
 </p>
 <% i=0 %>
@@ -24,11 +24,11 @@
 		<td colspan=2>		
 			<% n=0 %>
 			<% @ischecks.each do |ischeck| %>
-				<% day = @project.create_at+n*24*60*60 %>
+				<% date = @project.create_at+n%>
 					<% if ischeck %>
-						<a href="<%= getCheckOutUrl(n+1,@project.id) %>"><%= day.day %>○</a>
+						<a href="<%= getCheckOutUrl(date,@project.id) %>"><%= date.month %>/<%= date.day %>○</a>
 					<% else %>
-						<a href="<%= getCheckUrl(n+1,@project.id) %>"><%= day.day %>&emsp;</a>
+						<a href="<%= getCheckUrl(date,@project.id) %>"><%= date.month %>/<%= date.day %>&emsp;</a>
 					<% end %>
 				<% n+=1 %>
 			<% end %>

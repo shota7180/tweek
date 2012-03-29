@@ -12,50 +12,47 @@ class UsersController < ApplicationController
 	@projects.each do |project|
 		@ischecks[i] = []
 		checks = Check.find(:all).where(:project_id => project.id)
-		(0..(project.continuous_days-1)).each do |num|
-			check = checks.where(:number => num+1)
+		(0..(project.continuous_days-1)).each do |j|
+			check = checks.where(:date => project.create_at+j)
 			if check.length > 0
-				@ischecks[i][num] = true
+				@ischecks[i][j] = true
 			else
-				@ischecks[i][num] = false 
+				@ischecks[i][j] = false 
 			end	
 		end
 		i += 1
 	end
-
   end
   #
   def check
 	@project = Project.find(params[:project_id])
 	@user= User.find(@project.user_id)
-	number = params[:number]
+	@date = Date.strptime(params[:date], "%Y-%m-%d") 
 	if params[:checkout]
 		#checkout=true設定ならチェックを外す
-		checks = Check.find(:all).where(:project_id=>@project.id,:number=>number)
+		checks = Check.find(:all).where(:project_id=>@project.id,:date=>@date)
 		checks.each do |check|
 			check.destroy
 		end
 	else
-		check = Check.new
-		check.project_id = @project.id
-		check.number = number
-		check.save
+		if Check.find(:all).where(:date=>@date).length == 0
+			check = Check.new
+			check.project_id = @project.id
+			check.date = @date
+			check.save
+		end
 	end
-
-	@day = @project.create_at+(number.to_i-1)*24*60*60
-	
 	#チェック配列[[true|false]]
 	#@ischecks[project_num][day_num]
 	@ischecks = []
 	checks = Check.find(:all).where(:project_id => @project.id)
-	(0..(@project.continuous_days-1)).each do |num|
-		check = checks.where(:number => num+1)
+	(0..(@project.continuous_days-1)).each do |i|
+		check = checks.where(:date => @project.create_at+i)
 		if check.length > 0
-			@ischecks[num] = true
+			@ischecks[i] = true
 		else
-			@ischecks[num] = false 
+			@ischecks[i] = false 
 		end	
 	end
   end
-
 end
