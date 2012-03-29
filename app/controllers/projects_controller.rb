@@ -116,5 +116,9 @@ class ProjectsController < ApplicationController
   def support_create
 	@support = Support.new(params[:support])
 	@support.save
+
+	@project = Project.find(@support.project_id)
+	@user = User.find(@project.user_id)
+	UserMailer.support_email(@user, @project, @support).deliver
   end  
 end
