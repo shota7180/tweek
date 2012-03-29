@@ -57,24 +57,20 @@
 			<li>
 				<h2><span>Top Page</span></h2>
 				<div>
-					<figure>
-					</figure>
 				</div>
 			</li>
 			<li>
 				<h2><span>My Page</span></h2>
 				<div>
-					<figure>
-						<% if current_user %>
-							<%= content_for?(:content) ? yield(:content) : yield %>
-						<% else  %>
-							<div id="fb-root"></div> 
-							<script src="http://connect.facebook.net/en_US/all.js"></script>
-							<script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
-							<a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
-							<a href="/auth/twitter"><img src="assets/signin_tw.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
-						<% end  %>
-					</figure>
+					<% if current_user %>
+						<%= content_for?(:content) ? yield(:content) : yield %>
+					<% else  %>
+						<div id="fb-root"></div> 
+						<script src="http://connect.facebook.net/en_US/all.js"></script>
+						<script> FB.init({ appId:'<%=settings.facebook_app_id %>', cookie:true, status:true, xfbml:true }); </script> 
+						<a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a><br/>
+						<a href="/auth/twitter"><img src="assets/signin_tw.png" alt="Twitterでlogin" width="" height="" border="" align="" /></a>
+					<% end  %>
 				</div>
 			</li>
 		</ol>

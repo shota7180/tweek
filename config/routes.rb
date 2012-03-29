@@ -1,6 +1,8 @@
 Tweek::Application.routes.draw do
   resources :projects
   post "projects/confirm"
+  get "projects/:id/support_new" => "projects#support_new"
+  post "projects/support_create" => "projects#support_create"
 
   get "users/check"
   get "users/mypage"

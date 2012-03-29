@@ -108,4 +108,13 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def support_new
+	@project = Project.find(params[:id])
+	@user= User.find(@project.user_id)
+  end
+  def support_create
+	@support = Support.new(params[:support])
+	@support.save
+  end  
 end

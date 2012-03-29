@@ -1,0 +1,18 @@
+<%= form_tag({:controller=>"projects",:action=>"support_create"}, :onsubmit=>"return Validator.submit(this)") do %>
+  <div class="field">
+	お名前<br />
+	<%= text_field :support, :guest_name, :onblur=>"Validator.check(this)" %>
+  </div>
+  <div class="field">
+	メールアドレス<br />
+	<%= text_field :support, :guest_email, :onblur=>"Validator.check(this, 'mail')" %>
+  </div>
+  <div class="field">
+	ご褒美<br />
+	<%= text_field :support, :prize, :onblur=>"Validator.check(this)"%>
+  </div>
+  <%= hidden_field :support, :project_id, :value=>@project.id %>
+  <div class="actions">
+    <%= button_to('登録', 'entry' ) %>
+  </div>
+<% end %>
